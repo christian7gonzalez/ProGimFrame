@@ -1,0 +1,12 @@
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\Business.dll
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\Business.pdb
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\Data.Access.dll
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\EntityFramework.dll
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\Data.Access.pdb
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\Data.Access.dll.config
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\bin\Debug\EntityFramework.xml
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\obj\Debug\Business.csprojAssemblyReference.cache
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\obj\Debug\Business.csproj.CopyComplete
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\obj\Debug\Business.dll
+C:\Users\Christian Gonzalez\source\repos\ProGimFrame\Business\obj\Debug\Business.pdb

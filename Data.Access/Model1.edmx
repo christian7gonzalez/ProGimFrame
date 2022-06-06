@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="GIMNASIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="smalldatetime" />
+          <Property Name="telefono" Type="int" Nullable="true" />
+          <Property Name="fechaInicio" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Historico_Pago">
+          <Key>
+            <PropertyRef Name="idPago" />
+          </Key>
+          <Property Name="idPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="fechaPago" Type="smalldatetime" Nullable="false" />
+          <Property Name="motoPagado" Type="smalldatetime" Nullable="false" />
+          <Property Name="notaOpcional" Type="varchar" MaxLength="100" />
+          <Property Name="idUsuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Roll">
+          <Key>
+            <PropertyRef Name="idRoll" />
+          </Key>
+          <Property Name="idRoll" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sys_Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="apellido" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="fechaAlta" Type="smalldatetime" Nullable="false" />
+          <Property Name="idRoll" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Historico__idCli__3E52440B">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Historico_Pago" Type="Self.Historico_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Historico_Pago">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Historico__idUsu__3F466844">
+          <End Role="Sys_Usuario" Type="Self.Sys_Usuario" Multiplicity="1" />
+          <End Role="Historico_Pago" Type="Self.Historico_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Historico_Pago">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sys_Usuar__idRol__398D8EEE">
+          <End Role="Sys_Roll" Type="Self.Sys_Roll" Multiplicity="1" />
+          <End Role="Sys_Usuario" Type="Self.Sys_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Roll">
+              <PropertyRef Name="idRoll" />
+            </Principal>
+            <Dependent Role="Sys_Usuario">
+              <PropertyRef Name="idRoll" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GIMNASIOModelStoreContainer">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Historico_Pago" EntityType="Self.Historico_Pago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Roll" EntityType="Self.Sys_Roll" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sys_Usuario" EntityType="Self.Sys_Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Historico__idCli__3E52440B" Association="Self.FK__Historico__idCli__3E52440B">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Historico_Pago" EntitySet="Historico_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Historico__idUsu__3F466844" Association="Self.FK__Historico__idUsu__3F466844">
+            <End Role="Sys_Usuario" EntitySet="Sys_Usuario" />
+            <End Role="Historico_Pago" EntitySet="Historico_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sys_Usuar__idRol__398D8EEE" Association="Self.FK__Sys_Usuar__idRol__398D8EEE">
+            <End Role="Sys_Roll" EntitySet="Sys_Roll" />
+            <End Role="Sys_Usuario" EntitySet="Sys_Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GIMNASIOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="telefono" Type="Int32" Nullable="true" />
+          <Property Name="fechaInicio" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Historico_Pago" Relationship="Self.FK__Historico__idCli__3E52440B" FromRole="Cliente" ToRole="Historico_Pago" />
+        </EntityType>
+        <EntityType Name="Historico_Pago">
+          <Key>
+            <PropertyRef Name="idPago" />
+          </Key>
+          <Property Name="idPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="fechaPago" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="motoPagado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="notaOpcional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idUsuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Historico__idCli__3E52440B" FromRole="Historico_Pago" ToRole="Cliente" />
+          <NavigationProperty Name="Sys_Usuario" Relationship="Self.FK__Historico__idUsu__3F466844" FromRole="Historico_Pago" ToRole="Sys_Usuario" />
+        </EntityType>
+        <EntityType Name="Sys_Roll">
+          <Key>
+            <PropertyRef Name="idRoll" />
+          </Key>
+          <Property Name="idRoll" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sys_Usuario" Relationship="Self.FK__Sys_Usuar__idRol__398D8EEE" FromRole="Sys_Roll" ToRole="Sys_Usuario" />
+        </EntityType>
+        <EntityType Name="Sys_Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="usuario" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fechaAlta" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="idRoll" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Historico_Pago" Relationship="Self.FK__Historico__idUsu__3F466844" FromRole="Sys_Usuario" ToRole="Historico_Pago" />
+          <NavigationProperty Name="Sys_Roll" Relationship="Self.FK__Sys_Usuar__idRol__398D8EEE" FromRole="Sys_Usuario" ToRole="Sys_Roll" />
+        </EntityType>
+        <Association Name="FK__Historico__idCli__3E52440B">
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Historico_Pago" Type="Self.Historico_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cliente">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Historico_Pago">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Historico__idUsu__3F466844">
+          <End Role="Sys_Usuario" Type="Self.Sys_Usuario" Multiplicity="1" />
+          <End Role="Historico_Pago" Type="Self.Historico_Pago" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Historico_Pago">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sys_Usuar__idRol__398D8EEE">
+          <End Role="Sys_Roll" Type="Self.Sys_Roll" Multiplicity="1" />
+          <End Role="Sys_Usuario" Type="Self.Sys_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sys_Roll">
+              <PropertyRef Name="idRoll" />
+            </Principal>
+            <Dependent Role="Sys_Usuario">
+              <PropertyRef Name="idRoll" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GimnasioEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+          <EntitySet Name="Historico_Pago" EntityType="Self.Historico_Pago" />
+          <EntitySet Name="Sys_Roll" EntityType="Self.Sys_Roll" />
+          <EntitySet Name="Sys_Usuario" EntityType="Self.Sys_Usuario" />
+          <AssociationSet Name="FK__Historico__idCli__3E52440B" Association="Self.FK__Historico__idCli__3E52440B">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Historico_Pago" EntitySet="Historico_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Historico__idUsu__3F466844" Association="Self.FK__Historico__idUsu__3F466844">
+            <End Role="Sys_Usuario" EntitySet="Sys_Usuario" />
+            <End Role="Historico_Pago" EntitySet="Historico_Pago" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sys_Usuar__idRol__398D8EEE" Association="Self.FK__Sys_Usuar__idRol__398D8EEE">
+            <End Role="Sys_Roll" EntitySet="Sys_Roll" />
+            <End Role="Sys_Usuario" EntitySet="Sys_Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GIMNASIOModelStoreContainer" CdmEntityContainer="GimnasioEntities">
+          <EntitySetMapping Name="Cliente">
+            <EntityTypeMapping TypeName="GIMNASIOModel.Cliente">
+              <MappingFragment StoreEntitySet="Cliente">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Historico_Pago">
+            <EntityTypeMapping TypeName="GIMNASIOModel.Historico_Pago">
+              <MappingFragment StoreEntitySet="Historico_Pago">
+                <ScalarProperty Name="idPago" ColumnName="idPago" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="fechaPago" ColumnName="fechaPago" />
+                <ScalarProperty Name="motoPagado" ColumnName="motoPagado" />
+                <ScalarProperty Name="notaOpcional" ColumnName="notaOpcional" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Roll">
+            <EntityTypeMapping TypeName="GIMNASIOModel.Sys_Roll">
+              <MappingFragment StoreEntitySet="Sys_Roll">
+                <ScalarProperty Name="idRoll" ColumnName="idRoll" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sys_Usuario">
+            <EntityTypeMapping TypeName="GIMNASIOModel.Sys_Usuario">
+              <MappingFragment StoreEntitySet="Sys_Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="fechaAlta" ColumnName="fechaAlta" />
+                <ScalarProperty Name="idRoll" ColumnName="idRoll" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

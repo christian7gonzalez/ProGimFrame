@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GIMNASIOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="fechaNacimiento" Type="smalldatetime" />
+    <Property Name="telefono" Type="int" Nullable="true" />
+    <Property Name="fechaInicio" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Historico_Pago">
+    <Key>
+      <PropertyRef Name="idPago" />
+    </Key>
+    <Property Name="idPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idCliente" Type="int" Nullable="false" />
+    <Property Name="fechaPago" Type="smalldatetime" Nullable="false" />
+    <Property Name="motoPagado" Type="smalldatetime" Nullable="false" />
+    <Property Name="notaOpcional" Type="varchar" MaxLength="100" />
+    <Property Name="idUsuario" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sys_Roll">
+    <Key>
+      <PropertyRef Name="idRoll" />
+    </Key>
+    <Property Name="idRoll" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="25" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sys_Usuario">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="apellido" Type="varchar" MaxLength="25" Nullable="false" />
+    <Property Name="fechaAlta" Type="smalldatetime" Nullable="false" />
+    <Property Name="idRoll" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Historico__idCli__3E52440B">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Historico_Pago" Type="Self.Historico_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Historico_Pago">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historico__idUsu__3F466844">
+    <End Role="Sys_Usuario" Type="Self.Sys_Usuario" Multiplicity="1" />
+    <End Role="Historico_Pago" Type="Self.Historico_Pago" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sys_Usuario">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Historico_Pago">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sys_Usuar__idRol__398D8EEE">
+    <End Role="Sys_Roll" Type="Self.Sys_Roll" Multiplicity="1" />
+    <End Role="Sys_Usuario" Type="Self.Sys_Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sys_Roll">
+        <PropertyRef Name="idRoll" />
+      </Principal>
+      <Dependent Role="Sys_Usuario">
+        <PropertyRef Name="idRoll" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="GIMNASIOModelStoreContainer">
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Historico_Pago" EntityType="Self.Historico_Pago" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Roll" EntityType="Self.Sys_Roll" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sys_Usuario" EntityType="Self.Sys_Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Historico__idCli__3E52440B" Association="Self.FK__Historico__idCli__3E52440B">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Historico_Pago" EntitySet="Historico_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historico__idUsu__3F466844" Association="Self.FK__Historico__idUsu__3F466844">
+      <End Role="Sys_Usuario" EntitySet="Sys_Usuario" />
+      <End Role="Historico_Pago" EntitySet="Historico_Pago" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sys_Usuar__idRol__398D8EEE" Association="Self.FK__Sys_Usuar__idRol__398D8EEE">
+      <End Role="Sys_Roll" EntitySet="Sys_Roll" />
+      <End Role="Sys_Usuario" EntitySet="Sys_Usuario" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
