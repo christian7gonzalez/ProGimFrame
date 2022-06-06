@@ -17,7 +17,7 @@ namespace Data.Access
         public int idPago { get; set; }
         public int idCliente { get; set; }
         public System.DateTime fechaPago { get; set; }
-        public System.DateTime motoPagado { get; set; }
+        public System.DateTime montoPagado { get; set; }
         public string notaOpcional { get; set; }
         public int idUsuario { get; set; }
     

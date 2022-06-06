@@ -121,6 +121,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="EliminarCliente.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -133,6 +134,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="HistorialPago.aspx" />
+    <Content Include="ModificarCliente.aspx" />
+    <Content Include="NuevoCliente.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -162,28 +166,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.js" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.esm.js" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.js" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.min.js" />
     <Content Include="Styles\General.css" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -221,8 +203,36 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EliminarCliente.aspx.cs">
+      <DependentUpon>EliminarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EliminarCliente.aspx.designer.cs">
+      <DependentUpon>EliminarCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HistorialPago.aspx.cs">
+      <DependentUpon>HistorialPago.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HistorialPago.aspx.designer.cs">
+      <DependentUpon>HistorialPago.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ModificarCliente.aspx.cs">
+      <DependentUpon>ModificarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ModificarCliente.aspx.designer.cs">
+      <DependentUpon>ModificarCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NuevoCliente.aspx.cs">
+      <DependentUpon>NuevoCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NuevoCliente.aspx.designer.cs">
+      <DependentUpon>NuevoCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -254,28 +264,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\css\bootstrap.rtl.min.css.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.js.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.esm.js.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.esm.min.js.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.js.map" />
-    <Content Include="Styles\bootstrap-5.0.2-dist\js\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

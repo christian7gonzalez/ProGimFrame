@@ -19,7 +19,7 @@
           <ScalarProperty Name="idPago" ColumnName="idPago" />
           <ScalarProperty Name="idCliente" ColumnName="idCliente" />
           <ScalarProperty Name="fechaPago" ColumnName="fechaPago" />
-          <ScalarProperty Name="motoPagado" ColumnName="motoPagado" />
+          <ScalarProperty Name="montoPagado" ColumnName="motoPagado" />
           <ScalarProperty Name="notaOpcional" ColumnName="notaOpcional" />
           <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
         </MappingFragment>

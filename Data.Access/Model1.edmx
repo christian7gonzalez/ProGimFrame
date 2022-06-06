@@ -123,7 +123,7 @@
           <Property Name="idPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idCliente" Type="Int32" Nullable="false" />
           <Property Name="fechaPago" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="motoPagado" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="montoPagado" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="notaOpcional" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="idUsuario" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cliente" Relationship="Self.FK__Historico__idCli__3E52440B" FromRole="Historico_Pago" ToRole="Cliente" />
@@ -228,7 +228,7 @@
                 <ScalarProperty Name="idPago" ColumnName="idPago" />
                 <ScalarProperty Name="idCliente" ColumnName="idCliente" />
                 <ScalarProperty Name="fechaPago" ColumnName="fechaPago" />
-                <ScalarProperty Name="motoPagado" ColumnName="motoPagado" />
+                <ScalarProperty Name="montoPagado" ColumnName="motoPagado" />
                 <ScalarProperty Name="notaOpcional" ColumnName="notaOpcional" />
                 <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
               </MappingFragment>
