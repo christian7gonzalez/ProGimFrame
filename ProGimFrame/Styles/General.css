@@ -1,7 +1,10 @@
 ﻿body {
 }
 
-
 .estapcios-td {
     width: 10px;
+}
+
+.grid {
+    border-radius: 10px;
 }
